@@ -6,8 +6,9 @@ export const Container = styled(ImageBackground)<ImageBackgroundProps>`
 `;
 
 export const Body = styled.View`
-  flex: 1;
+  flex-grow: 1;
   margin-top: 54px;
   padding-left: 26px;
   padding-right: 26px;
+  justify-content: space-around;
 `;
