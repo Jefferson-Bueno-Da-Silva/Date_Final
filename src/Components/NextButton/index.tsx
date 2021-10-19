@@ -1,12 +1,16 @@
 import React from "react";
-import { View } from "react-native";
+import { TouchableOpacityProps } from "react-native";
 
 import { ButtonText, Container } from "./styles";
 
-const NextButton: React.FC = () => {
+export type NextButtonProps = TouchableOpacityProps & {
+  text: string;
+};
+
+const NextButton: React.FC<NextButtonProps> = ({ text, ...rest }) => {
   return (
-    <Container activeOpacity={0.7}>
-      <ButtonText>Next</ButtonText>
+    <Container activeOpacity={0.7} {...rest}>
+      <ButtonText>{text}</ButtonText>
     </Container>
   );
 };

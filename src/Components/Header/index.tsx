@@ -1,15 +1,20 @@
 import React from "react";
-import { View } from "react-native";
+import { GestureResponderEvent, View } from "react-native";
 import RightButton from "../RightButton";
 
 import { Container, ContainerTitle, Title } from "./styles";
 
-const Header: React.FC = () => {
+export type HeaderProps = {
+  title: string;
+  onPress?: (event: GestureResponderEvent) => void;
+};
+
+const Header: React.FC<HeaderProps> = ({ title, onPress }) => {
   return (
     <Container>
-      <RightButton />
+      <RightButton activeOpacity={0.7} onPress={onPress} />
       <ContainerTitle>
-        <Title>Create Account</Title>
+        <Title>{title}</Title>
       </ContainerTitle>
     </Container>
   );
