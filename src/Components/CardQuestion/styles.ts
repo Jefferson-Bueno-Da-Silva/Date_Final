@@ -37,15 +37,13 @@ export const Title = styled.Text`
   text-shadow: 1px 4px 4px rgba(0, 0, 0, 0.25);
 `;
 
-export const Body = styled.View`
-  flex: 1;
-`;
+export type AnswerProps = TouchableOpacityProps & AnswerTextProps;
 
-export const Answer = styled.TouchableOpacity<TouchableOpacityProps>`
+export const Answer = styled.TouchableOpacity<AnswerProps>`
   min-height: 75px;
 
   background: rgba(73, 73, 73, 0.59);
-  border: 8px solid #00ffb9;
+  border: 8px solid ${(props) => (props.active ? "#1F6955" : "#00ffb9")};
   border-radius: 15px;
 
   align-items: center;
@@ -55,10 +53,14 @@ export const Answer = styled.TouchableOpacity<TouchableOpacityProps>`
   padding: 16px;
 `;
 
-export const AnswerText = styled.Text`
+export type AnswerTextProps = {
+  active: boolean;
+};
+
+export const AnswerText = styled.Text<AnswerTextProps>`
   font-size: 27px;
   text-align: center;
-  color: #00ffb9;
+  color: ${(props) => (props.active ? "#1F6955" : "#00ffb9")}; ;
 `;
 
 export const Footer = styled.View`

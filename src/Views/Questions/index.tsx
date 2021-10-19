@@ -12,6 +12,8 @@ const image = require("../../assets/QuestionsBack.png");
 export const Questions: React.FC = () => {
   const [index, setIndex] = useState(0);
   const [progress, setProgress] = useState(0);
+  const [active, setActive] = useState(questions[index].answer);
+
   const { goBack } = useNavigation();
 
   const handleGoBack = useCallback(() => {
@@ -19,14 +21,20 @@ export const Questions: React.FC = () => {
       goBack();
     } else {
       setIndex((old) => old - 1);
+      setActive(questions[index - 1].answer);
     }
   }, [index]);
 
   const handleGoNext = useCallback(() => {
     if (index !== 3) {
       setIndex((old) => old + 1);
+      setActive(questions[index + 1].answer);
     }
   }, [index]);
+
+  useEffect(() => {
+    questions[index].answer = active;
+  }, [active]);
 
   useEffect(() => {
     setProgress((100 * index + 100) / questions.length);
@@ -44,6 +52,8 @@ export const Questions: React.FC = () => {
         AnswerB={questions[index].a2}
         percent={progress}
         onPress={handleGoNext}
+        active={active}
+        setActive={setActive}
       />
     </Container>
   );

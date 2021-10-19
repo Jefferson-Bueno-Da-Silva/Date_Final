@@ -1,11 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { GestureResponderEvent, View } from "react-native";
 import { NextButton } from "..";
 
 import {
   Answer,
   AnswerText,
-  Body,
   Container,
   Footer,
   Title,
@@ -20,6 +19,8 @@ export type CardQuestionProps = {
   AnswerB: string;
   percent: number;
   onPress?: (event: GestureResponderEvent) => void;
+  active: number;
+  setActive: React.Dispatch<React.SetStateAction<number>>;
 };
 
 const CardQuestion: React.FC<CardQuestionProps> = ({
@@ -28,20 +29,31 @@ const CardQuestion: React.FC<CardQuestionProps> = ({
   AnswerB,
   percent,
   onPress,
+  active,
+  setActive,
 }) => {
   return (
     <Container>
       <TitleContainer>
         <Title>{title}</Title>
       </TitleContainer>
-      <Body>
-        <Answer activeOpacity={0.7}>
-          <AnswerText>{AnswerA}</AnswerText>
-        </Answer>
-        <Answer activeOpacity={0.7}>
-          <AnswerText>{AnswerB}</AnswerText>
-        </Answer>
-      </Body>
+
+      <Answer
+        active={active === 1}
+        activeOpacity={0.7}
+        onPress={() => setActive(1)}
+      >
+        <AnswerText active={active === 1}>{AnswerA}</AnswerText>
+      </Answer>
+
+      <Answer
+        active={active === 2}
+        activeOpacity={0.7}
+        onPress={() => setActive(2)}
+      >
+        <AnswerText active={active === 2}>{AnswerB}</AnswerText>
+      </Answer>
+
       <Footer>
         <NextButton text="Next Question" onPress={onPress} />
         <Circle>
