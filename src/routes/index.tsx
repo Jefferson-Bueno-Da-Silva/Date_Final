@@ -7,7 +7,10 @@ const Stack = createNativeStackNavigator();
 
 function Routes() {
   return (
-    <Stack.Navigator initialRouteName="CreateAccount">
+    <Stack.Navigator
+      initialRouteName="CreateAccount"
+      screenOptions={{ animation: "slide_from_left" }}
+    >
       <Stack.Screen
         name="CreateAccount"
         component={CreateAccount}

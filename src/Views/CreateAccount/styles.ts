@@ -10,5 +10,13 @@ export const Body = styled.View`
   margin-top: 54px;
   padding-left: 26px;
   padding-right: 26px;
-  justify-content: space-around;
+`;
+
+export const Footer = styled.View`
+  width: 100%;
+  margin-bottom: 24px;
+  align-items: center;
+  justify-content: center;
+  padding-left: 40px;
+  padding-right: 40px;
 `;

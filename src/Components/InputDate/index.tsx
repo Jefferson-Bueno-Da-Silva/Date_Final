@@ -11,7 +11,7 @@ export type InputDateProps = {
 
 const InputDate: React.FC<InputDateProps> = ({ value, setState }) => {
   return (
-    <View style={{ marginTop: 35 }}>
+    <View style={{ marginTop: 34 }}>
       <Labels text="Birthday" />
       <Container
         type={"datetime"}
