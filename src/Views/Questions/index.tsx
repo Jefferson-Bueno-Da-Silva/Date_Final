@@ -13,6 +13,7 @@ export const Questions: React.FC = () => {
   const [index, setIndex] = useState(0);
   const [progress, setProgress] = useState(0);
   const [active, setActive] = useState(questions[index].answer);
+  const [value, setValue] = useState([]);
 
   const { goBack } = useNavigation();
 
@@ -29,6 +30,12 @@ export const Questions: React.FC = () => {
     if (index !== 3) {
       setIndex((old) => old + 1);
       setActive(questions[index + 1].answer);
+    } else {
+      setValue(
+        questions.map((v) => {
+          return v.answer;
+        })
+      );
     }
   }, [index]);
 
@@ -49,7 +56,9 @@ export const Questions: React.FC = () => {
       <CardQuestion
         title={questions[index].question}
         AnswerA={questions[index].a1}
+        valueA={questions[index].v1}
         AnswerB={questions[index].a2}
+        valueB={questions[index].v2}
         percent={progress}
         onPress={handleGoNext}
         active={active}

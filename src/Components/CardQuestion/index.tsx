@@ -17,16 +17,20 @@ export type CardQuestionProps = {
   title: string;
   AnswerA: string;
   AnswerB: string;
+  valueA: string;
+  valueB: string;
   percent: number;
   onPress?: (event: GestureResponderEvent) => void;
-  active: number;
-  setActive: React.Dispatch<React.SetStateAction<number>>;
+  active: string;
+  setActive: React.Dispatch<React.SetStateAction<string>>;
 };
 
 const CardQuestion: React.FC<CardQuestionProps> = ({
   title,
   AnswerA,
+  valueA,
   AnswerB,
+  valueB,
   percent,
   onPress,
   active,
@@ -39,19 +43,19 @@ const CardQuestion: React.FC<CardQuestionProps> = ({
       </TitleContainer>
 
       <Answer
-        active={active === 1}
+        active={active === valueA}
         activeOpacity={0.7}
-        onPress={() => setActive(1)}
+        onPress={() => setActive(valueA)}
       >
-        <AnswerText active={active === 1}>{AnswerA}</AnswerText>
+        <AnswerText active={active === valueA}>{AnswerA}</AnswerText>
       </Answer>
 
       <Answer
-        active={active === 2}
+        active={active === valueB}
         activeOpacity={0.7}
-        onPress={() => setActive(2)}
+        onPress={() => setActive(valueB)}
       >
-        <AnswerText active={active === 2}>{AnswerB}</AnswerText>
+        <AnswerText active={active === valueB}>{AnswerB}</AnswerText>
       </Answer>
 
       <Footer>

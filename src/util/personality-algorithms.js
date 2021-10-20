@@ -63,7 +63,7 @@ export const questions = [
     a2: "ser bastante quieto e reservado",
     v1: "e",
     v2: "i",
-    answer: 0,
+    answer: null,
   },
   {
     id: 2,
@@ -72,7 +72,7 @@ export const questions = [
     a2: "pessoas realistas",
     v1: "n",
     v2: "s",
-    answer: 0,
+    answer: null,
   },
   {
     id: 3,
@@ -81,7 +81,7 @@ export const questions = [
     a2: "sua cabeça governa seu coração",
     v1: "f",
     v2: "t",
-    answer: 0,
+    answer: null,
   },
   {
     id: 4,
@@ -90,6 +90,6 @@ export const questions = [
     a2: "mais de uma pessoa organizada",
     v1: "p",
     v2: "j",
-    answer: 0,
+    answer: null,
   },
 ];
