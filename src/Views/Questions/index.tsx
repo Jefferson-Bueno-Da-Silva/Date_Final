@@ -1,8 +1,10 @@
-import React, { useCallback, useEffect } from "react";
-import { useState } from "react";
-import { View } from "react-native";
-import { Header } from "../../Components";
+import React, { useCallback, useEffect, useState } from "react";
+import { RootStackParamList } from "../../routes";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { useNavigation } from "@react-navigation/core";
+type ScreenProp = NativeStackNavigationProp<RootStackParamList, "Conclusion">;
+
+import { Header } from "../../Components";
 import CardQuestion from "../../Components/CardQuestion";
 import { questions } from "../../util/personality-algorithms";
 
@@ -15,7 +17,7 @@ export const Questions: React.FC = () => {
   const [active, setActive] = useState(questions[index].answer);
   const [value, setValue] = useState([]);
 
-  const { goBack } = useNavigation();
+  const { goBack, navigate } = useNavigation<ScreenProp>();
 
   const handleGoBack = useCallback(() => {
     if (index === 0) {
@@ -36,6 +38,7 @@ export const Questions: React.FC = () => {
           return v.answer;
         })
       );
+      navigate("Conclusion");
     }
   }, [index]);
 

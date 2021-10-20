@@ -1,12 +1,16 @@
 import React from "react";
 import { View } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
 import { CreateAccount } from "../Views/CreateAccount";
 import { Questions } from "../Views/Questions";
+import { Conclusion } from "../Views/Conclusion";
 
 export type RootStackParamList = {
   CreateAccount: undefined;
   Questions: undefined;
+  Conclusion: undefined;
+  Home: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -26,6 +30,12 @@ function Routes() {
       <Stack.Screen
         name="Questions"
         component={Questions}
+        options={{ headerShown: false }}
+      />
+
+      <Stack.Screen
+        name="Conclusion"
+        component={Conclusion}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>
