@@ -9,7 +9,7 @@ import { Conclusion } from "../Views/Conclusion";
 export type RootStackParamList = {
   CreateAccount: undefined;
   Questions: undefined;
-  Conclusion: undefined;
+  Conclusion: { value: string };
   Home: undefined;
 };
 

@@ -1,58 +1,31 @@
-export const personalityGroupColors = {
-  Analysts: "#96637d",
-  Diplomats: "#72c9a6",
-  Sentinels: "#5fbfd8",
-  Explorers: "#dfc10c",
-};
+export const sixteenPersonalitiesTaxonomy = [
+  // Analysts
+    { abbreviation: "INTJ", nickname: "Architect", image: require('../assets/architect.png')  },
+    { abbreviation: "INTP", nickname: "Logician", image: require('../assets/logician.png')  },
+    { abbreviation: "ENTJ", nickname: "Commander", image: require('../assets/commander.png')  },
+    { abbreviation: "ENTP", nickname: "Debater", image: require('../assets/debater.png')  },
+  // Diplomats
+    { abbreviation: "INFJ", nickname: "Advocate", image: require('../assets/advocate.png')  },
+    { abbreviation: "INFP", nickname: "Mediator", image: require('../assets/mediator.png')  },
+    { abbreviation: "ENFJ", nickname: "Protagonist", image: require('../assets/protagonist.png')  },
+    { abbreviation: "ENFP", nickname: "Campaigner", image: require('../assets/campaigner.png')  },
+  // Sentinels
+    { abbreviation: "ISTJ", nickname: "Logistician", image: require('../assets/logistician.png')  },
+    { abbreviation: "ISFJ", nickname: "Defender", image: require('../assets/defender.png')  },
+    { abbreviation: "ESTJ", nickname: "Executive", image: require('../assets/executive.png')  },
+    { abbreviation: "ESFJ", nickname: "Consul", image: require('../assets/consul.png')  },
+  // Explorers
+    { abbreviation: "ISTP", nickname: "Virtuoso", image: require('../assets/virtuoso.png')  },
+    { abbreviation: "ISFP", nickname: "Adventurer", image: require('../assets/adventurer.png')  },
+    { abbreviation: "ESTP", nickname: "Entrepreneur", image: require('../assets/entrepreneur.png')  },
+    { abbreviation: "ESFP", nickname: "Entertainer", image: require('../assets/entertainer.png')  },
+];
 
-export const colorBasedOnGroup = (group) => {
-  switch (group) {
-    case "Analysts":
-      return personalityGroupColors.Analysts;
-    case "Diplomats":
-      return personalityGroupColors.Diplomats;
-    case "Sentinels":
-      return personalityGroupColors.Sentinels;
-    case "Explorers":
-      return personalityGroupColors.Explorers;
-    default:
-      return "grey";
-  }
-};
-
-export const sixteenPersonalitiesTaxonomy = {
-  Analysts: [
-    { abbreviation: "INTJ", nickname: "Architect" },
-    { abbreviation: "INTP", nickname: "Logician" },
-    { abbreviation: "ENTJ", nickname: "Commander" },
-    { abbreviation: "ENTP", nickname: "Debater" },
-  ],
-  Diplomats: [
-    { abbreviation: "INFJ", nickname: "Advocate" },
-    { abbreviation: "INFP", nickname: "Mediator" },
-    { abbreviation: "ENFJ", nickname: "Protagonist" },
-    { abbreviation: "ENFP", nickname: "Campaigner" },
-  ],
-  Sentinels: [
-    { abbreviation: "ISTJ", nickname: "Logistician" },
-    { abbreviation: "ISFJ", nickname: "Defender" },
-    { abbreviation: "ESTJ", nickname: "Executive" },
-    { abbreviation: "ESFJ", nickname: "Consul" },
-  ],
-  Explorers: [
-    { abbreviation: "ISTP", nickname: "Virtuoso" },
-    { abbreviation: "ISFP", nickname: "Adventurer" },
-    { abbreviation: "ESTP", nickname: "Entrepreneur" },
-    { abbreviation: "ESFP", nickname: "Entertainer" },
-  ],
-};
-
-export const sixteenPersonalityTypes = () => {
-  const personalities = [];
-  Object.values(sixteenPersonalitiesTaxonomy).forEach((g) =>
-    g.forEach((e) => personalities.push(e))
-  );
-  return personalities;
+export const sixteenPersonalityTypes = (value) => {
+  const personalities = sixteenPersonalitiesTaxonomy.filter((e) => {
+    return e.abbreviation === value
+  });
+  return personalities[0];
 };
 
 export const questions = [

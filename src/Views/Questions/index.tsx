@@ -15,7 +15,6 @@ export const Questions: React.FC = () => {
   const [index, setIndex] = useState(0);
   const [progress, setProgress] = useState(0);
   const [active, setActive] = useState(questions[index].answer);
-  const [value, setValue] = useState([]);
 
   const { goBack, navigate } = useNavigation<ScreenProp>();
 
@@ -33,12 +32,14 @@ export const Questions: React.FC = () => {
       setIndex((old) => old + 1);
       setActive(questions[index + 1].answer);
     } else {
-      setValue(
-        questions.map((v) => {
+      const value = questions
+        .map((v) => {
           return v.answer;
         })
-      );
-      navigate("Conclusion");
+        .toString()
+        .replace(/,/g, "")
+        .toUpperCase();
+      navigate("Conclusion", { value });
     }
   }, [index]);
 
